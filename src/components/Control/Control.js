@@ -12,7 +12,8 @@ import style from './Control.less'
 import { IconDownload, IconRotateLeft, IconRotateRight, IconZoom, IconArrowLeft, IconArrowRight, IconClose } from '@/asserts/icons'
 // Utils
 import { Context } from '../context'
-import { downloadFromLink } from '@/utils'
+// import { downloadFromLink } from '@/utils'
+import { downloadByElectron } from '@/utils/download'
 
 export default class Control extends React.PureComponent {
 
@@ -78,7 +79,9 @@ export default class Control extends React.PureComponent {
                         <div
                             id="zmageControlDownload"
                             className={classnames(style.download, { [style.show]:!zoom&&show })}
-                            onClick={() => downloadFromLink(this.context.set[this.context.page].src)}
+                            onClick={() => {
+                              downloadByElectron(this.context.set[this.context.page].src, this.context.set[this.context.page].alt)
+                            }}
                         >
                             <IconDownload/>
                         </div>

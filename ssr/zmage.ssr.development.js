@@ -97,7 +97,7 @@ module.exports =
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
-module.exports = {"backgroundLayer":"backgroundLayer__3kiCJ"};
+module.exports = {"backgroundLayer":"backgroundLayer__36t43"};
 
 /***/ }),
 
@@ -111,7 +111,7 @@ module.exports = {"backgroundLayer":"backgroundLayer__3kiCJ"};
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
-module.exports = {"wrapperLayer":"wrapperLayer__3hggD"};
+module.exports = {"wrapperLayer":"wrapperLayer__z_PKn"};
 
 /***/ }),
 
@@ -125,7 +125,7 @@ module.exports = {"wrapperLayer":"wrapperLayer__3hggD"};
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
-module.exports = {"baseButton":"baseButton__1l-8C","controls":"controls__3sQmL","show":"show__3wuNU","pinButton":"pinButton__3L7CE","rotate":"rotate__3dU4j","rotateLeft":"rotateLeft__jf-FB","rotateRight":"rotateRight__2DM1Q","download":"download__JLwN1","zoom":"zoom__HH1gO","close":"close__1Yy0b","sideButton":"sideButton__3kbDa","flipLeft":"flipLeft__2HlVL","flipRight":"flipRight__3GreD","pages":"pages__3_44_","mobile":"mobile__3kn09","dot":"dot__gnENp","blackDot":"blackDot__1Nm3_","whiteDot":"whiteDot__3MHk8"};
+module.exports = {"baseButton":"baseButton__2AV5J","controls":"controls__NTVNu","show":"show__2Pu4e","pinButton":"pinButton__pLhHH","rotate":"rotate__18SVA","rotateLeft":"rotateLeft__1y4kO","rotateRight":"rotateRight__1GeTD","download":"download__TnaVI","zoom":"zoom__1W2_u","close":"close__h79Tx","sideButton":"sideButton__25vo1","flipLeft":"flipLeft__fhip_","flipRight":"flipRight__2T92B","pages":"pages__2jlej","mobile":"mobile__3HB5p","dot":"dot__p50eg","blackDot":"blackDot__TTF7k","whiteDot":"whiteDot__3iAb5"};
 
 /***/ }),
 
@@ -139,7 +139,7 @@ module.exports = {"baseButton":"baseButton__1l-8C","controls":"controls__3sQmL",
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
-module.exports = {"imageLayer":"imageLayer__33OvN","zooming":"zooming__8A3Sl","invalidate":"invalidate__GRvMe"};
+module.exports = {"imageLayer":"imageLayer__1NyU2","zooming":"zooming__3TFmo","invalidate":"invalidate__1wygJ"};
 
 /***/ }),
 
@@ -153,13 +153,13 @@ module.exports = {"imageLayer":"imageLayer__33OvN","zooming":"zooming__8A3Sl","i
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
-module.exports = {"loadingContainer":"loadingContainer__nzXM4","show":"show__1BtTD","reload":"reload__2nJBf","loading":"loading__2iAZJ","spin":"spin__1tumn","fadeIn":"fadeIn__1iF9b","fadeOut":"fadeOut__11bTR"};
+module.exports = {"loadingContainer":"loadingContainer__33QBo","show":"show__1Bu8R","reload":"reload__3KDuO","loading":"loading__3UcNS","spin":"spin__2VDbe","fadeIn":"fadeIn__3TpcC","fadeOut":"fadeOut__9PHOR"};
 
 /***/ }),
 
 /***/ "./src/index.js":
 /*!***********************************!*\
-  !*** ./src/index.js + 31 modules ***!
+  !*** ./src/index.js + 32 modules ***!
   \***********************************/
 /*! exports provided: default */
 /*! all exports used */
@@ -1130,6 +1130,260 @@ function (_React$PureComponent) {
 // React libs
 
 var Context = Object(external_react_["createContext"])();
+// CONCATENATED MODULE: ./src/utils/download.js
+/*
+ * @Author       : Zoe
+ * @Date         : 2020-04-13 17:33:02
+ * @LastEditors  : Zoe
+ * @LastEditTime : 2020-04-13 17:45:05
+ * @FilePath     : /irp-minder/Users/ZoeAllen/Workspace/source-code/go-workspace/irp-web/src/components/react-zmage/src/utils/download.js
+ */
+// remote
+var _window$require = window.require('electron'),
+    ipcRenderer = _window$require.ipcRenderer;
+/**
+ * 下载文件
+ * @param {string}  href - 下载目标地址
+ * @param {string} [name] - 下载文件名称
+ */
+
+
+var downloadByElectron = function downloadByElectron(url, name) {
+  name = name || "IRP_".concat(Math.random().toString().substring(2, 7), ".png");
+  ipcRenderer.send('downloadFile', {
+    url: url,
+    name: name,
+    extensions: '.png',
+    isBase64: url.startsWith('data:')
+  });
+};
+// CONCATENATED MODULE: ./src/components/Control/Control.js
+function Control_typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { Control_typeof = function _typeof(obj) { return typeof obj; }; } else { Control_typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return Control_typeof(obj); }
+
+function Control_defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function Control_classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function Control_defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function Control_createClass(Constructor, protoProps, staticProps) { if (protoProps) Control_defineProperties(Constructor.prototype, protoProps); if (staticProps) Control_defineProperties(Constructor, staticProps); return Constructor; }
+
+function Control_possibleConstructorReturn(self, call) { if (call && (Control_typeof(call) === "object" || typeof call === "function")) { return call; } return Control_assertThisInitialized(self); }
+
+function Control_assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function Control_getPrototypeOf(o) { Control_getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return Control_getPrototypeOf(o); }
+
+function Control_inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) Control_setPrototypeOf(subClass, superClass); }
+
+function Control_setPrototypeOf(o, p) { Control_setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return Control_setPrototypeOf(o, p); }
+
+/**
+ * 控制层
+ * 控制图片切换, 缩放
+ **/
+// Libs
+
+ // Style
+
+ // Asserts
+
+ // Utils
+
+ // import { downloadFromLink } from '@/utils'
+
+
+
+var Control_Control_Control =
+/*#__PURE__*/
+function (_React$PureComponent) {
+  Control_inherits(Control, _React$PureComponent);
+
+  function Control() {
+    Control_classCallCheck(this, Control);
+
+    return Control_possibleConstructorReturn(this, Control_getPrototypeOf(Control).apply(this, arguments));
+  }
+
+  Control_createClass(Control, [{
+    key: "render",
+    value: function render() {
+      var _this = this,
+          _classnames9;
+
+      var _this$context = this.context,
+          set = _this$context.set,
+          preset = _this$context.preset,
+          presetIsMobile = _this$context.presetIsMobile,
+          presetIsDesktop = _this$context.presetIsDesktop,
+          controller = _this$context.controller,
+          backdrop = _this$context.backdrop,
+          loop = _this$context.loop,
+          show = _this$context.show,
+          zoom = _this$context.zoom,
+          page = _this$context.page,
+          outBrowsing = _this$context.outBrowsing,
+          toPage = _this$context.toPage,
+          toPrevPage = _this$context.toPrevPage,
+          toNextPage = _this$context.toNextPage,
+          toggleZoom = _this$context.toggleZoom,
+          toggleRotate = _this$context.toggleRotate;
+      return external_react_default.a.createElement(external_react_["Fragment"], null, external_react_default.a.createElement("div", {
+        id: "zmageControl",
+        className: external_classnames_default()(Control_default.a.controls, Control_defineProperty({}, Control_default.a.show, !zoom && show)),
+        style: {
+          backgroundColor: backdrop
+        }
+      }, controller.rotate && external_react_default.a.createElement("div", {
+        id: "zmageControlRotateLeft",
+        className: external_classnames_default()(Control_default.a.rotateLeft, Control_defineProperty({}, Control_default.a.show, !zoom && show)),
+        onClick: toggleRotate("left")
+      }, external_react_default.a.createElement(IconRotateLeft_IconRotateLeft, null)), controller.rotate && external_react_default.a.createElement("div", {
+        id: "zmageControlRotateRight",
+        className: external_classnames_default()(Control_default.a.rotateRight, Control_defineProperty({}, Control_default.a.show, !zoom && show)),
+        onClick: toggleRotate("right")
+      }, external_react_default.a.createElement(IconRotateRight_IconRotateRight, null)), controller.download && external_react_default.a.createElement("div", {
+        id: "zmageControlDownload",
+        className: external_classnames_default()(Control_default.a.download, Control_defineProperty({}, Control_default.a.show, !zoom && show)),
+        onClick: function onClick() {
+          console.log(_this.context.set[_this.context.page]);
+          downloadByElectron(_this.context.set[_this.context.page].src, _this.context.set[_this.context.page].alt);
+        }
+      }, external_react_default.a.createElement(IconDownload_IconDownload, null)), controller.zoom && external_react_default.a.createElement("div", {
+        id: "zmageControlZoom",
+        className: external_classnames_default()(Control_default.a.zoom, Control_defineProperty({}, Control_default.a.show, !zoom && show)),
+        onClick: presetIsMobile ? function () {
+          return window.open(set[page].src);
+        } : toggleZoom
+      }, external_react_default.a.createElement(IconZoom_IconZoom, null)), controller.close && external_react_default.a.createElement("div", {
+        id: "zmageControlClose",
+        className: external_classnames_default()(Control_default.a.close, Control_defineProperty({}, Control_default.a.show, !zoom && show)),
+        onClick: zoom ? toggleZoom : outBrowsing
+      }, external_react_default.a.createElement(IconClose_IconClose, null))), Array.isArray(set) && set.length > 1 && controller.flip && external_react_default.a.createElement(external_react_["Fragment"], null, (loop || page !== 0) && external_react_default.a.createElement("div", {
+        id: "zmageControlFlipLeft",
+        className: external_classnames_default()(Control_default.a.flipLeft, Control_defineProperty({}, Control_default.a.show, !zoom && show)),
+        style: {
+          backgroundColor: backdrop
+        },
+        onClick: toPrevPage
+      }, external_react_default.a.createElement(IconArrowLeft_IconArrowLeft, null)), (loop || page !== set.length - 1) && external_react_default.a.createElement("div", {
+        id: "zmageControlFlipRight",
+        className: external_classnames_default()(Control_default.a.flipRight, Control_defineProperty({}, Control_default.a.show, !zoom && show)),
+        style: {
+          backgroundColor: backdrop
+        },
+        onClick: toNextPage
+      }, external_react_default.a.createElement(IconArrowRight_IconArrowRight, null))), Array.isArray(set) && set.length > 1 && controller.pagination && external_react_default.a.createElement("div", {
+        id: "zmageControlPagination",
+        className: external_classnames_default()(Control_default.a.pages, (_classnames9 = {}, Control_defineProperty(_classnames9, Control_default.a.show, !zoom && show), Control_defineProperty(_classnames9, Control_default.a.mobile, presetIsMobile), _classnames9)),
+        style: {
+          backgroundColor: backdrop
+        }
+      }, set.map(function (_, i) {
+        return i === page ? external_react_default.a.createElement("span", {
+          key: i,
+          id: "zmageControlPaginationActive",
+          className: Control_default.a.blackDot
+        }) : external_react_default.a.createElement("span", {
+          key: i,
+          className: Control_default.a.whiteDot,
+          onClick: function onClick() {
+            return toPage(i);
+          }
+        });
+      })));
+    }
+  }]);
+
+  return Control;
+}(external_react_default.a.PureComponent);
+
+
+Control_Control_Control.contextType = Context;
+// CONCATENATED MODULE: ./src/components/Control/index.js
+
+// EXTERNAL MODULE: ./src/components/Image/Image.less
+var Image_Image = __webpack_require__("./src/components/Image/Image.less");
+var Image_default = /*#__PURE__*/__webpack_require__.n(Image_Image);
+
+// EXTERNAL MODULE: ./src/components/Image/Loading.less
+var Image_Loading = __webpack_require__("./src/components/Image/Loading.less");
+var Loading_default = /*#__PURE__*/__webpack_require__.n(Image_Loading);
+
+// CONCATENATED MODULE: ./src/components/Image/Loading.js
+function Loading_typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { Loading_typeof = function _typeof(obj) { return typeof obj; }; } else { Loading_typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return Loading_typeof(obj); }
+
+function Loading_defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function Loading_classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function Loading_defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function Loading_createClass(Constructor, protoProps, staticProps) { if (protoProps) Loading_defineProperties(Constructor.prototype, protoProps); if (staticProps) Loading_defineProperties(Constructor, staticProps); return Constructor; }
+
+function Loading_possibleConstructorReturn(self, call) { if (call && (Loading_typeof(call) === "object" || typeof call === "function")) { return call; } return Loading_assertThisInitialized(self); }
+
+function Loading_assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function Loading_getPrototypeOf(o) { Loading_getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return Loading_getPrototypeOf(o); }
+
+function Loading_inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) Loading_setPrototypeOf(subClass, superClass); }
+
+function Loading_setPrototypeOf(o, p) { Loading_setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return Loading_setPrototypeOf(o, p); }
+
+/**
+ * 加载动画
+ **/
+// Libs
+
+ // Styles
+
+ // Icons
+
+ // Utils
+
+
+
+var Loading_Loading =
+/*#__PURE__*/
+function (_React$PureComponent) {
+  Loading_inherits(Loading, _React$PureComponent);
+
+  function Loading() {
+    Loading_classCallCheck(this, Loading);
+
+    return Loading_possibleConstructorReturn(this, Loading_getPrototypeOf(Loading).apply(this, arguments));
+  }
+
+  Loading_createClass(Loading, [{
+    key: "render",
+    value: function render() {
+      var _this$props = this.props,
+          show = _this$props.show,
+          load = _this$props.load,
+          invalidate = _this$props.invalidate,
+          onReload = _this$props.onReload,
+          backdrop = _this$props.backdrop;
+      return external_react_default.a.createElement(external_react_["Fragment"], null, (load || invalidate) && external_react_default.a.createElement("div", {
+        id: "zmageLoading",
+        className: external_classnames_default()(Loading_default.a.loadingContainer, Loading_defineProperty({}, Loading_default.a.show, show))
+      }, load && external_react_default.a.createElement("div", {
+        className: Loading_default.a.loading
+      }, external_react_default.a.createElement(IconLoading_IconLoading, null)), invalidate && external_react_default.a.createElement("button", {
+        className: Loading_default.a.reload,
+        onClick: onReload,
+        style: {
+          background: backdrop
+        }
+      }, external_react_default.a.createElement(IconRefresh_IconRefresh, null))));
+    }
+  }]);
+
+  return Loading;
+}(external_react_default.a.PureComponent);
+
+
+Loading_Loading.contextType = Context;
 // EXTERNAL MODULE: external "lodash.memoize"
 var external_lodash_memoize_ = __webpack_require__("lodash.memoize");
 var external_lodash_memoize_default = /*#__PURE__*/__webpack_require__.n(external_lodash_memoize_);
@@ -1347,231 +1601,6 @@ var RANGE = {
 var mirrorRange = function mirrorRange(edge) {
   return RANGE[edge];
 };
-// CONCATENATED MODULE: ./src/components/Control/Control.js
-function Control_typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { Control_typeof = function _typeof(obj) { return typeof obj; }; } else { Control_typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return Control_typeof(obj); }
-
-function Control_defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-function Control_classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function Control_defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function Control_createClass(Constructor, protoProps, staticProps) { if (protoProps) Control_defineProperties(Constructor.prototype, protoProps); if (staticProps) Control_defineProperties(Constructor, staticProps); return Constructor; }
-
-function Control_possibleConstructorReturn(self, call) { if (call && (Control_typeof(call) === "object" || typeof call === "function")) { return call; } return Control_assertThisInitialized(self); }
-
-function Control_assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function Control_getPrototypeOf(o) { Control_getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return Control_getPrototypeOf(o); }
-
-function Control_inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) Control_setPrototypeOf(subClass, superClass); }
-
-function Control_setPrototypeOf(o, p) { Control_setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return Control_setPrototypeOf(o, p); }
-
-/**
- * 控制层
- * 控制图片切换, 缩放
- **/
-// Libs
-
- // Style
-
- // Asserts
-
- // Utils
-
-
-
-
-var Control_Control_Control =
-/*#__PURE__*/
-function (_React$PureComponent) {
-  Control_inherits(Control, _React$PureComponent);
-
-  function Control() {
-    Control_classCallCheck(this, Control);
-
-    return Control_possibleConstructorReturn(this, Control_getPrototypeOf(Control).apply(this, arguments));
-  }
-
-  Control_createClass(Control, [{
-    key: "render",
-    value: function render() {
-      var _this = this,
-          _classnames9;
-
-      var _this$context = this.context,
-          set = _this$context.set,
-          preset = _this$context.preset,
-          presetIsMobile = _this$context.presetIsMobile,
-          presetIsDesktop = _this$context.presetIsDesktop,
-          controller = _this$context.controller,
-          backdrop = _this$context.backdrop,
-          loop = _this$context.loop,
-          show = _this$context.show,
-          zoom = _this$context.zoom,
-          page = _this$context.page,
-          outBrowsing = _this$context.outBrowsing,
-          toPage = _this$context.toPage,
-          toPrevPage = _this$context.toPrevPage,
-          toNextPage = _this$context.toNextPage,
-          toggleZoom = _this$context.toggleZoom,
-          toggleRotate = _this$context.toggleRotate;
-      return external_react_default.a.createElement(external_react_["Fragment"], null, external_react_default.a.createElement("div", {
-        id: "zmageControl",
-        className: external_classnames_default()(Control_default.a.controls, Control_defineProperty({}, Control_default.a.show, !zoom && show)),
-        style: {
-          backgroundColor: backdrop
-        }
-      }, controller.rotate && external_react_default.a.createElement("div", {
-        id: "zmageControlRotateLeft",
-        className: external_classnames_default()(Control_default.a.rotateLeft, Control_defineProperty({}, Control_default.a.show, !zoom && show)),
-        onClick: toggleRotate("left")
-      }, external_react_default.a.createElement(IconRotateLeft_IconRotateLeft, null)), controller.rotate && external_react_default.a.createElement("div", {
-        id: "zmageControlRotateRight",
-        className: external_classnames_default()(Control_default.a.rotateRight, Control_defineProperty({}, Control_default.a.show, !zoom && show)),
-        onClick: toggleRotate("right")
-      }, external_react_default.a.createElement(IconRotateRight_IconRotateRight, null)), controller.download && external_react_default.a.createElement("div", {
-        id: "zmageControlDownload",
-        className: external_classnames_default()(Control_default.a.download, Control_defineProperty({}, Control_default.a.show, !zoom && show)),
-        onClick: function onClick() {
-          return downloadFromLink(_this.context.set[_this.context.page].src);
-        }
-      }, external_react_default.a.createElement(IconDownload_IconDownload, null)), controller.zoom && external_react_default.a.createElement("div", {
-        id: "zmageControlZoom",
-        className: external_classnames_default()(Control_default.a.zoom, Control_defineProperty({}, Control_default.a.show, !zoom && show)),
-        onClick: presetIsMobile ? function () {
-          return window.open(set[page].src);
-        } : toggleZoom
-      }, external_react_default.a.createElement(IconZoom_IconZoom, null)), controller.close && external_react_default.a.createElement("div", {
-        id: "zmageControlClose",
-        className: external_classnames_default()(Control_default.a.close, Control_defineProperty({}, Control_default.a.show, !zoom && show)),
-        onClick: zoom ? toggleZoom : outBrowsing
-      }, external_react_default.a.createElement(IconClose_IconClose, null))), Array.isArray(set) && set.length > 1 && controller.flip && external_react_default.a.createElement(external_react_["Fragment"], null, (loop || page !== 0) && external_react_default.a.createElement("div", {
-        id: "zmageControlFlipLeft",
-        className: external_classnames_default()(Control_default.a.flipLeft, Control_defineProperty({}, Control_default.a.show, !zoom && show)),
-        style: {
-          backgroundColor: backdrop
-        },
-        onClick: toPrevPage
-      }, external_react_default.a.createElement(IconArrowLeft_IconArrowLeft, null)), (loop || page !== set.length - 1) && external_react_default.a.createElement("div", {
-        id: "zmageControlFlipRight",
-        className: external_classnames_default()(Control_default.a.flipRight, Control_defineProperty({}, Control_default.a.show, !zoom && show)),
-        style: {
-          backgroundColor: backdrop
-        },
-        onClick: toNextPage
-      }, external_react_default.a.createElement(IconArrowRight_IconArrowRight, null))), Array.isArray(set) && set.length > 1 && controller.pagination && external_react_default.a.createElement("div", {
-        id: "zmageControlPagination",
-        className: external_classnames_default()(Control_default.a.pages, (_classnames9 = {}, Control_defineProperty(_classnames9, Control_default.a.show, !zoom && show), Control_defineProperty(_classnames9, Control_default.a.mobile, presetIsMobile), _classnames9)),
-        style: {
-          backgroundColor: backdrop
-        }
-      }, set.map(function (_, i) {
-        return i === page ? external_react_default.a.createElement("span", {
-          key: i,
-          id: "zmageControlPaginationActive",
-          className: Control_default.a.blackDot
-        }) : external_react_default.a.createElement("span", {
-          key: i,
-          className: Control_default.a.whiteDot,
-          onClick: function onClick() {
-            return toPage(i);
-          }
-        });
-      })));
-    }
-  }]);
-
-  return Control;
-}(external_react_default.a.PureComponent);
-
-
-Control_Control_Control.contextType = Context;
-// CONCATENATED MODULE: ./src/components/Control/index.js
-
-// EXTERNAL MODULE: ./src/components/Image/Image.less
-var Image_Image = __webpack_require__("./src/components/Image/Image.less");
-var Image_default = /*#__PURE__*/__webpack_require__.n(Image_Image);
-
-// EXTERNAL MODULE: ./src/components/Image/Loading.less
-var Image_Loading = __webpack_require__("./src/components/Image/Loading.less");
-var Loading_default = /*#__PURE__*/__webpack_require__.n(Image_Loading);
-
-// CONCATENATED MODULE: ./src/components/Image/Loading.js
-function Loading_typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { Loading_typeof = function _typeof(obj) { return typeof obj; }; } else { Loading_typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return Loading_typeof(obj); }
-
-function Loading_defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-function Loading_classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function Loading_defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function Loading_createClass(Constructor, protoProps, staticProps) { if (protoProps) Loading_defineProperties(Constructor.prototype, protoProps); if (staticProps) Loading_defineProperties(Constructor, staticProps); return Constructor; }
-
-function Loading_possibleConstructorReturn(self, call) { if (call && (Loading_typeof(call) === "object" || typeof call === "function")) { return call; } return Loading_assertThisInitialized(self); }
-
-function Loading_assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function Loading_getPrototypeOf(o) { Loading_getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return Loading_getPrototypeOf(o); }
-
-function Loading_inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) Loading_setPrototypeOf(subClass, superClass); }
-
-function Loading_setPrototypeOf(o, p) { Loading_setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return Loading_setPrototypeOf(o, p); }
-
-/**
- * 加载动画
- **/
-// Libs
-
- // Styles
-
- // Icons
-
- // Utils
-
-
-
-var Loading_Loading =
-/*#__PURE__*/
-function (_React$PureComponent) {
-  Loading_inherits(Loading, _React$PureComponent);
-
-  function Loading() {
-    Loading_classCallCheck(this, Loading);
-
-    return Loading_possibleConstructorReturn(this, Loading_getPrototypeOf(Loading).apply(this, arguments));
-  }
-
-  Loading_createClass(Loading, [{
-    key: "render",
-    value: function render() {
-      var _this$props = this.props,
-          show = _this$props.show,
-          load = _this$props.load,
-          invalidate = _this$props.invalidate,
-          onReload = _this$props.onReload,
-          backdrop = _this$props.backdrop;
-      return external_react_default.a.createElement(external_react_["Fragment"], null, (load || invalidate) && external_react_default.a.createElement("div", {
-        id: "zmageLoading",
-        className: external_classnames_default()(Loading_default.a.loadingContainer, Loading_defineProperty({}, Loading_default.a.show, show))
-      }, load && external_react_default.a.createElement("div", {
-        className: Loading_default.a.loading
-      }, external_react_default.a.createElement(IconLoading_IconLoading, null)), invalidate && external_react_default.a.createElement("button", {
-        className: Loading_default.a.reload,
-        onClick: onReload,
-        style: {
-          background: backdrop
-        }
-      }, external_react_default.a.createElement(IconRefresh_IconRefresh, null))));
-    }
-  }]);
-
-  return Loading;
-}(external_react_default.a.PureComponent);
-
-
-Loading_Loading.contextType = Context;
 // CONCATENATED MODULE: ./src/config/anim.js
 /* 与 anim.less 同步 */
 // 动画参数 (正常)
